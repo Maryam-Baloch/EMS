@@ -1,0 +1,59 @@
+@model EMS.Models.Salary
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Salary</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SalaryRecordId" />
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayMonth" class="control-label"></label>
+                <input asp-for="PayMonth" class="form-control" />
+                <span asp-validation-for="PayMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayYear" class="control-label"></label>
+                <input asp-for="PayYear" class="form-control" />
+                <span asp-validation-for="PayYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GrossSalary" class="control-label"></label>
+                <input asp-for="GrossSalary" class="form-control" />
+                <span asp-validation-for="GrossSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalDeductions" class="control-label"></label>
+                <input asp-for="TotalDeductions" class="form-control" />
+                <span asp-validation-for="TotalDeductions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NetSalary" class="control-label"></label>
+                <input asp-for="NetSalary" class="form-control" />
+                <span asp-validation-for="NetSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
